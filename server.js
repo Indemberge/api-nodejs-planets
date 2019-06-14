@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const requireDir = require('require-dir');
 
 // iniciando o App
 const app = express();
@@ -9,8 +10,9 @@ mongoose.connect('mongodb+srv://indemberge:859621e@cursonodejs-rtjkg.mongodb.net
 useNewUrlParser: true
 });
 
-app.get('/', (get, res) => {
-    res.send("Hello Planets");
-});
+requireDir('./src/models');
+
+// Rotas
+app.use('/api', require('./src/routes'));
 
 app.listen(3001);
