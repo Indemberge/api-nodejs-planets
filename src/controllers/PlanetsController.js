@@ -4,11 +4,12 @@ const Planets = mongoose.model('Planets');
 
 module.exports = {
     async index(req, res) {
-        const planets = await Planets.find();
+        const { page = 1 } = req.query;
+        const planets = await Planets.paginate({}, { page, limit: 1 });
         return res.json(planets);
     },
 
-    async show(req, res){
+    async findbyid(req, res){
         const planet = await Planets.findById(req.params.id);
         return res.json(planet);
     },

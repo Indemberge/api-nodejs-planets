@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
 const PlanetsSchema = new mongoose.Schema({
 name: {
@@ -24,4 +25,5 @@ CreatedAt: {
 },
 });
 
+PlanetsSchema.plugin(mongoosePaginate);
 mongoose.model('Planets', PlanetsSchema);
