@@ -6,6 +6,10 @@ name: {
     type: String,
     required: true,
 },
+population: {
+    type: Number,
+    required: true,
+},
 climate: {
     type: String,
     required: true,

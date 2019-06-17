@@ -9,8 +9,13 @@ module.exports = {
         return res.json(planets);
     },
 
-    async findbyid(req, res){
+    async searchById(req, res){
         const planet = await Planets.findById(req.params.id);
+        return res.json(planet);
+    },
+
+    async searchByName(req, res){
+        const planet = await Planets.find({'name' : req.params.name})
         return res.json(planet);
     },
 
